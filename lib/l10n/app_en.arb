@@ -1,0 +1,17 @@
+{
+  "language": "Language",
+  "mod" : "Mod",
+  "light" : "Light",
+  "dark" : "Dark",
+  "setting" : "Setting",
+  "newsApp" : "News App",
+  "sports" : "Sports",
+  "politics" : "Politics",
+  "health" : "Health",
+  "science" : "Science",
+  "environment" : "Environment",
+  "business" : "Business",
+  "categories" : "Categories",
+  "newsAp" : "News App!"
+
+}

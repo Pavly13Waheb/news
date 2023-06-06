@@ -1,0 +1,17 @@
+{
+  "language": "اللغة",
+  "mod" : "النمط",
+  "light" : "مضئ",
+  "dark" : "مظلم",
+  "setting" : "الإعدادات",
+  "newsApp" : "تطبيق الأخبار",
+  "sports" : "رياضة",
+  "politics" : "سياسة",
+  "health" : "صحة",
+  "science" : "علوم",
+  "environment" : "بيئة",
+  "business" : "عمل",
+  "categories" : "فئات",
+  "newsAp" : "تطبيق الأخبار!"
+
+}
