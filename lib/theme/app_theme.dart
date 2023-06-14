@@ -7,9 +7,9 @@ abstract class AppTheme {
     primaryColorLight: AppColor.greenColor,
     scaffoldBackgroundColor: AppColor.whiteColor,
     textTheme: TextTheme(
-      bodyLarge: TextStyle(color: AppColor.whiteColor, fontSize: 30),
-      bodyMedium: TextStyle(color: AppColor.blackColor, fontSize: 25),
-      bodySmall: TextStyle(color: AppColor.blackColor, fontSize: 15),
+      bodyLarge: TextStyle(color: AppColor.whiteColor, fontSize: 25),
+      bodyMedium: TextStyle(color: AppColor.blackColor, fontSize: 20),
+      bodySmall: TextStyle(color: AppColor.blackColor, fontSize: 10),
     ),
     appBarTheme: AppBarTheme(
       toolbarHeight: 80,
@@ -37,9 +37,9 @@ abstract class AppTheme {
     primaryColorDark: AppColor.whiteColor,
     scaffoldBackgroundColor: AppColor.blackColor,
     textTheme: TextTheme(
-      bodyLarge: TextStyle(color: AppColor.whiteColor, fontSize: 30),
-      bodyMedium: TextStyle(color: AppColor.blackColor, fontSize: 25),
-      bodySmall: TextStyle(fontSize: 20, color: AppColor.blackColor),
+      bodyLarge: TextStyle(color: AppColor.whiteColor, fontSize: 25),
+      bodyMedium: TextStyle(color: AppColor.blackColor, fontSize: 20),
+      bodySmall: TextStyle(color: AppColor.blackColor,fontSize: 10),
     ),
     appBarTheme: AppBarTheme(
       backgroundColor: AppColor.whiteColor,

@@ -149,8 +149,8 @@ class _HomePageState extends State<HomePage> {
             ,
             child: Image(
               image: AssetImage(image),
-              width: 150,
-              height: 170,
+              width: 130,
+              height: 150,
             ),
           ),
           Text(
@@ -170,8 +170,8 @@ class _HomePageState extends State<HomePage> {
       required Color containerColor}) {
     return Container(
       margin: EdgeInsets.only(
-          right: MediaQuery.of(context).size.width * 0.08,
-          left: MediaQuery.of(context).size.width * 0.04,
+          right: MediaQuery.of(context).size.width * 0.04,
+          left: MediaQuery.of(context).size.width * 0.08,
           top: MediaQuery.of(context).size.height * 0.01,
           bottom: MediaQuery.of(context).size.height * 0.01),
       decoration: BoxDecoration(
@@ -189,8 +189,8 @@ class _HomePageState extends State<HomePage> {
               onCategoryTap,
             child: Image(
               image: AssetImage(image),
-              width: 150,
-              height: 170,
+              width: 130,
+              height: 150,
             ),
           ),
           Text(
@@ -240,3 +240,4 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
+
