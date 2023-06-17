@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:news/app_settings.dart';
 import 'package:news/theme/app_material.dart';
+import 'package:news/theme/drawer.dart';
 import 'category_screens/business.dart';
 import 'category_screens/environment.dart';
 import 'category_screens/health.dart';
@@ -38,26 +39,29 @@ class _HomePageState extends State<HomePage> {
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.2,
                 child: Text(AppLocalizations.of(context)!.newsAp)),
-            drawerChild(
+            AppDrawer.drawerChild(
                 onChildTap: () {
                   Navigator.pushNamed(context, HomePage.routeName);
                 },
                 icon: Icons.list,
-                childName: AppLocalizations.of(context)!.categories),
-            drawerChild(
+                childName: AppLocalizations.of(context)!.categories, context: context),
+            AppDrawer.drawerChild(
                 onChildTap: () {
                   Navigator.pushNamed(context, AppSettings.routeName,
                       arguments: {});
                 },
                 icon: Icons.settings,
-                childName: AppLocalizations.of(context)!.setting),
+                childName: AppLocalizations.of(context)!.setting, context: context),
           ],
         ),
       ),
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.newsApp),
       ),
-      body: Container(
+      body:
+
+
+      Container(
         width: double.infinity,
         height: double.infinity,
         margin: EdgeInsets.only(
@@ -72,7 +76,8 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         alignment: Alignment.center,
-        child: SingleChildScrollView(
+        child:
+        SingleChildScrollView(
           child: Column(
             children: [
               Container(height: 50,
@@ -226,40 +231,5 @@ class _HomePageState extends State<HomePage> {
     );
   }
 
-  drawerChild(
-      {required IconData icon,
-      required String childName,
-      required Function() onChildTap}) {
-    return Container(
-      width: double.infinity,
-      margin: EdgeInsets.symmetric(
-          horizontal: MediaQuery.of(context).size.width * 0.05,
-          vertical: MediaQuery.of(context).size.height * 0.01),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            margin: EdgeInsets.symmetric(
-                horizontal: MediaQuery.of(context).size.width * 0.02,
-                vertical: MediaQuery.of(context).size.height * 0.01),
-            child: InkWell(
-              onTap: onChildTap,
-              child: Row(
-                children: [
-                  Icon(icon, size: 30),
-                  Container(
-                    margin: EdgeInsets.symmetric(
-                        horizontal: MediaQuery.of(context).size.width * 0.02),
-                    child: Text(
-                      childName,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
+ 
 }
