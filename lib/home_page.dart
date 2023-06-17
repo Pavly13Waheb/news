@@ -39,7 +39,9 @@ class _HomePageState extends State<HomePage> {
                 height: MediaQuery.of(context).size.height * 0.2,
                 child: Text(AppLocalizations.of(context)!.newsAp)),
             drawerChild(
-                onChildTap: () {Navigator.pushNamed(context, HomePage.routeName);},
+                onChildTap: () {
+                  Navigator.pushNamed(context, HomePage.routeName);
+                },
                 icon: Icons.list,
                 childName: AppLocalizations.of(context)!.categories),
             drawerChild(
@@ -73,46 +75,70 @@ class _HomePageState extends State<HomePage> {
         child: SingleChildScrollView(
           child: Column(
             children: [
+              Container(height: 50,
+                width: 140,
+                child: Text(
+                  "Pick your category of interest",
+                  style: Theme.of(context).textTheme.bodyMedium,
+                ),
+              ),
               Row(
                 children: [
                   widgetLeftButton(
                       image: AppImage.ball,
-                      onCategoryTap: () {Navigator.pushNamed(context, Sports.routeName);},
+                      onCategoryTap: () {
+                        Navigator.pushNamed(context, Sports.routeName);
+                      },
                       containerColor: AppColor.redColor,
                       categoryName: AppLocalizations.of(context)!.sports),
                   widgetRightButton(
                       image: AppImage.politics,
-                      onCategoryTap: () {Navigator.pushNamed(context, Politics.routeName);},
+                      onCategoryTap: () {
+                        Navigator.pushNamed(context, Politics.routeName);
+                      },
                       containerColor: AppColor.blueColor,
-                      categoryName: AppLocalizations.of(context)!.politics),
+                      categoryName:
+                          AppLocalizations.of(context)!.politics),
                 ],
               ),
               Row(
                 children: [
                   widgetLeftButton(
                       image: AppImage.health,
-                      onCategoryTap: () {Navigator.pushNamed(context, Health.routeName);},
+                      onCategoryTap: () {
+                        Navigator.pushNamed(context, Health.routeName);
+                      },
                       containerColor: AppColor.pinkColor,
                       categoryName: AppLocalizations.of(context)!.health),
                   widgetRightButton(
                       image: AppImage.business,
-                      onCategoryTap: () {Navigator.pushNamed(context, Business.routeName);},
+                      onCategoryTap: () {
+                        Navigator.pushNamed(context, Business.routeName);
+                      },
                       containerColor: AppColor.brawnColor,
-                      categoryName: AppLocalizations.of(context)!.science),
+                      categoryName:
+                          AppLocalizations.of(context)!.science),
                 ],
               ),
               Row(
                 children: [
                   widgetLeftButton(
                       image: AppImage.environment,
-                      onCategoryTap: () {Navigator.pushNamed(context, Environment.routeName);},
+                      onCategoryTap: () {
+                        Navigator.pushNamed(
+                            context, Environment.routeName);
+                      },
                       containerColor: AppColor.lightBlueColor,
-                      categoryName: AppLocalizations.of(context)!.environment),
+                      categoryName:
+                          AppLocalizations.of(context)!.environment),
                   widgetRightButton(
                       image: AppImage.science,
-                      onCategoryTap: () {Navigator.pushNamed(context, Science.routeName);},
+                      onCategoryTap: () {
+                        Navigator.pushNamed(context, Science.routeName);
+                      },
                       containerColor: AppColor.yellowColor,
-                      categoryName: AppLocalizations.of(context)!.science),
+                      categoryName:
+                          AppLocalizations.of(context)!.science),
                 ],
               ),
             ],
@@ -144,9 +170,7 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         children: [
           InkWell(
-            onTap:
-              onCategoryTap
-            ,
+            onTap: onCategoryTap,
             child: Image(
               image: AssetImage(image),
               width: 130,
@@ -185,8 +209,7 @@ class _HomePageState extends State<HomePage> {
       child: Column(
         children: [
           InkWell(
-            onTap:
-              onCategoryTap,
+            onTap: onCategoryTap,
             child: Image(
               image: AssetImage(image),
               width: 130,
@@ -240,4 +263,3 @@ class _HomePageState extends State<HomePage> {
     );
   }
 }
-

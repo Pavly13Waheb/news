@@ -30,13 +30,13 @@ class MyApp extends StatefulWidget {
 
 class _MyAppState extends State<MyApp> {
   late AppProvider provider;
-@override
+
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
     iniSharedPref();
-
-}
+  }
 
   // This widget is the root of your application.
   @override
@@ -54,7 +54,7 @@ class _MyAppState extends State<MyApp> {
         GlobalCupertinoLocalizations.delegate,
         AppLocalizations.delegate
       ],
-      supportedLocales:  [
+      supportedLocales: [
         Locale('en'), // English
         Locale('ar'), // Arabic
       ],
