@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news/app_settings.dart';
+import 'package:news/category_screens/every_thing.dart';
 import 'package:news/theme/app_material.dart';
 import 'package:news/theme/drawer.dart';
 import 'category_screens/business.dart';
@@ -44,24 +45,31 @@ class _HomePageState extends State<HomePage> {
                   Navigator.pushNamed(context, HomePage.routeName);
                 },
                 icon: Icons.list,
-                childName: AppLocalizations.of(context)!.categories, context: context),
+                childName: AppLocalizations.of(context)!.categories,
+                context: context),
             AppDrawer.drawerChild(
                 onChildTap: () {
                   Navigator.pushNamed(context, AppSettings.routeName,
                       arguments: {});
                 },
                 icon: Icons.settings,
-                childName: AppLocalizations.of(context)!.setting, context: context),
+                childName: AppLocalizations.of(context)!.setting,
+                context: context),
+            AppDrawer.drawerChild(
+              onChildTap: () {
+                Navigator.pushNamed(context, NewsEverything.routeName);
+              },
+              icon: Icons.newspaper,
+              childName: "News",
+              context: context,
+            ),
           ],
         ),
       ),
       appBar: AppBar(
         title: Text(AppLocalizations.of(context)!.newsApp),
       ),
-      body:
-
-
-      Container(
+      body: Container(
         width: double.infinity,
         height: double.infinity,
         margin: EdgeInsets.only(
@@ -76,11 +84,11 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
         alignment: Alignment.center,
-        child:
-        SingleChildScrollView(
+        child: SingleChildScrollView(
           child: Column(
             children: [
-              Container(height: 50,
+              Container(
+                height: 50,
                 width: 140,
                 child: Text(
                   "Pick your category of interest",
@@ -102,8 +110,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.pushNamed(context, Politics.routeName);
                       },
                       containerColor: AppColor.blueColor,
-                      categoryName:
-                          AppLocalizations.of(context)!.politics),
+                      categoryName: AppLocalizations.of(context)!.politics),
                 ],
               ),
               Row(
@@ -121,8 +128,7 @@ class _HomePageState extends State<HomePage> {
                         Navigator.pushNamed(context, Business.routeName);
                       },
                       containerColor: AppColor.brawnColor,
-                      categoryName:
-                          AppLocalizations.of(context)!.science),
+                      categoryName: AppLocalizations.of(context)!.science),
                 ],
               ),
               Row(
@@ -130,20 +136,17 @@ class _HomePageState extends State<HomePage> {
                   widgetLeftButton(
                       image: AppImage.environment,
                       onCategoryTap: () {
-                        Navigator.pushNamed(
-                            context, Environment.routeName);
+                        Navigator.pushNamed(context, Environment.routeName);
                       },
                       containerColor: AppColor.lightBlueColor,
-                      categoryName:
-                          AppLocalizations.of(context)!.environment),
+                      categoryName: AppLocalizations.of(context)!.environment),
                   widgetRightButton(
                       image: AppImage.science,
                       onCategoryTap: () {
                         Navigator.pushNamed(context, Science.routeName);
                       },
                       containerColor: AppColor.yellowColor,
-                      categoryName:
-                          AppLocalizations.of(context)!.science),
+                      categoryName: AppLocalizations.of(context)!.science),
                 ],
               ),
             ],
@@ -230,6 +233,4 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
-
- 
 }

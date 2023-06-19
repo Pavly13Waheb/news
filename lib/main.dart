@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:news/app_settings.dart';
 import 'package:news/category_screens/business.dart';
 import 'package:news/category_screens/environment.dart';
+import 'package:news/category_screens/every_thing.dart';
 import 'package:news/category_screens/health.dart';
 import 'package:news/category_screens/politics.dart';
 import 'package:news/category_screens/sports.dart';
@@ -69,6 +70,7 @@ class _MyAppState extends State<MyApp> {
         Science.routeName: (_) => Science(),
         Sports.routeName: (_) => Sports(),
         Business.routeName: (_) => Business(),
+        NewsEverything.routeName: (_)=> NewsEverything()
       },
       initialRoute: HomePage.routeName,
     );
