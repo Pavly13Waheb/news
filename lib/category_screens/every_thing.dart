@@ -1,16 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:news/apis_statics/sourceResponse.dart';
-import 'package:news/category_screens/tab_content.dart';
+import 'package:news/model/tab_content.dart';
 import '../apis_statics/apis_statics_manage.dart';
-import '../app_settings.dart';
-import '../home_page.dart';
 import '../theme/app_material.dart';
-import '../theme/drawer.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class NewsEverything extends StatefulWidget {
-  static String routeName = "newsEverything";
-
   @override
   State<NewsEverything> createState() => _NewsEverythingState();
 }
@@ -20,40 +14,12 @@ class _NewsEverythingState extends State<NewsEverything> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      drawer: Drawer(
-        child: Column(
-          children: [
-            Container(
-                alignment: Alignment.center,
-                color: AppColor.greenColor,
-                width: double.infinity,
-                height: MediaQuery.of(context).size.height * 0.2,
-                child: Text(AppLocalizations.of(context)!.newsAp)),
-            AppDrawer.drawerChild(
-                onChildTap: () {
-                  Navigator.pushNamed(context, HomePage.routeName);
-                },
-                icon: Icons.list,
-                childName: AppLocalizations.of(context)!.categories,
-                context: context),
-            AppDrawer.drawerChild(
-                onChildTap: () {
-                  Navigator.pushNamed(context, AppSettings.routeName,
-                      arguments: {});
-                },
-                icon: Icons.settings,
-                childName: AppLocalizations.of(context)!.setting,
-                context: context),
-          ],
-        ),
-      ),
-      appBar: AppBar(
-        title: Text("News"),
-      ),
-      body: FutureBuilder<SourceResponseDM>(
+    return
+      FutureBuilder<SourceResponseDM>(
+
         future: ApisStaticsManager.getSources(),
         builder: (context, snapshot) {
+
           if (snapshot.hasError) {
             return Text("Error ${snapshot.error.toString()}");
           } else if (snapshot.hasData) {
@@ -66,8 +32,7 @@ class _NewsEverythingState extends State<NewsEverything> {
             );
           }
         },
-      ),
-    );
+      );
   }
 
   Widget getScreenBody(

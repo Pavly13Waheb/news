@@ -1,18 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:news/app_settings.dart';
-import 'package:news/category_screens/business.dart';
-import 'package:news/category_screens/environment.dart';
+import 'package:news/model/app_settings.dart';
 import 'package:news/category_screens/every_thing.dart';
-import 'package:news/category_screens/health.dart';
-import 'package:news/category_screens/politics.dart';
-import 'package:news/category_screens/sports.dart';
-import 'package:news/provider.dart';
+import 'package:news/provider/provider.dart';
 import 'package:news/theme/app_theme.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'category_screens/science.dart';
 import 'home_page.dart';
 
 void main() {
@@ -64,13 +58,6 @@ class _MyAppState extends State<MyApp> {
       routes: {
         HomePage.routeName: (_) => HomePage(),
         AppSettings.routeName: (_) => AppSettings(),
-        Environment.routeName: (_) => Environment(),
-        Health.routeName: (_) => Health(),
-        Politics.routeName: (_) => Politics(),
-        Science.routeName: (_) => Science(),
-        Sports.routeName: (_) => Sports(),
-        Business.routeName: (_) => Business(),
-        NewsEverything.routeName: (_)=> NewsEverything()
       },
       initialRoute: HomePage.routeName,
     );

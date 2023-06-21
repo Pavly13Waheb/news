@@ -1,12 +1,12 @@
 // ignore_for_file: invalid_use_of_visible_for_testing_member, invalid_use_of_protected_member
 
 import 'package:flutter/material.dart';
-import 'package:news/provider.dart';
+import 'package:news/provider/provider.dart';
 import 'package:provider/provider.dart';
-import '../theme/app_material.dart';
+import '../../theme/app_material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
-import 'home_page.dart';
+import '../home_page.dart';
 
 class AppSettings extends StatefulWidget {
   static String routeName = "appSettings";
