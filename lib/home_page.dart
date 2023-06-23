@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:news/model/CategoryItem.dart';
 import 'package:news/model/app_settings.dart';
-import 'package:news/category_screens/every_thing.dart';
-import 'package:news/model/categoryDM.dart';
 import 'package:news/theme/app_material.dart';
 import 'package:news/model/drawer.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
+import 'model/Category/categories_tab.dart';
 
 class HomePage extends StatefulWidget {
   static String routeName = "homepage";
@@ -48,24 +47,24 @@ class _HomePageState extends State<HomePage> {
         appBar: AppBar(
           title: Text(AppLocalizations.of(context)!.newsApp),
         ),
-        body: categoriesTab()
+        body: Container(
+            width: double.infinity,
+            height: double.infinity,
+            margin: EdgeInsets.only(
+                right: MediaQuery.of(context).size.width * 0.02,
+                left: MediaQuery.of(context).size.width * 0.02,
+                top: MediaQuery.of(context).size.height * 0.01,
+                bottom: MediaQuery.of(context).size.height * 0.01),
+            decoration: BoxDecoration(
+              image: DecorationImage(
+                image: AssetImage(AppImage.backGround),
+                fit: BoxFit.fill,
+              ),
+            ),
+            child: CategoriesTab())
 
-       // NewsEverything()
+        // NewsEverything()
 
-    );
-  }
-
-
-  Widget categoriesTab() {
-    return GridView.builder(
-      scrollDirection: Axis.vertical,
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 2,
-      ),
-      itemCount: CategoryDM.categories.length,
-       itemBuilder: (context, index) {
-         return CategoryItem(CategoryDM.categories[index]);
-       },
-    );
+        );
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news/apis_statics/sourceResponse.dart';
-import 'package:news/model/tab_content.dart';
+import 'package:news/model/news_tab_content.dart';
 import '../apis_statics/apis_statics_manage.dart';
 import '../theme/app_material.dart';
 
@@ -57,7 +57,7 @@ class _NewsEverythingState extends State<NewsEverything> {
         Expanded(
             child: TabBarView(
                 children: sources.map((source) {
-                  return TabContent(source);
+                  return NewsTabContent(source);
                 }).toList()))
       ]),
     );

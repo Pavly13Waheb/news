@@ -4,10 +4,10 @@ import '../apis_statics/ArticlesResponseDM.dart';
 import '../apis_statics/apis_statics_manage.dart';
 
 // ignore: must_be_immutable
-class TabContent extends StatelessWidget {
+class NewsTabContent extends StatelessWidget {
   SourceDM sourceDM;
 
-  TabContent(this.sourceDM);
+  NewsTabContent(this.sourceDM);
 
   @override
   Widget build(BuildContext context) {
