@@ -12,6 +12,8 @@
   "environment" : "Environment",
   "business" : "Business",
   "categories" : "Categories",
-  "newsAp" : "News App!"
+  "newsAp" : "News App!",
+  "entertainment" : "Entertainment",
+  "technology" : "Technology"
 
 }

@@ -1,25 +1,31 @@
 import 'package:flutter/material.dart';
 import 'package:news/apis_statics/sourceResponse.dart';
+import 'package:news/model/Category/categoryDM.dart';
 import 'package:news/model/news_tab_content.dart';
 import '../apis_statics/apis_statics_manage.dart';
 import '../theme/app_material.dart';
 
-class NewsEverything extends StatefulWidget {
+class NewsTab extends StatefulWidget {
+  CategoryDM selectedCategory;
+
+  NewsTab({required this.selectedCategory});
+
   @override
-  State<NewsEverything> createState() => _NewsEverythingState();
+  State<NewsTab> createState() => _NewsTabState();
 }
 
-class _NewsEverythingState extends State<NewsEverything> {
+class _NewsTabState extends State<NewsTab> {
   int currentTab = 0;
 
   @override
   Widget build(BuildContext context) {
-    return
-      FutureBuilder<SourceResponseDM>(
-
-        future: ApisStaticsManager.getSources(),
+    return Container(
+      decoration: BoxDecoration(
+          image: DecorationImage(
+              image: AssetImage(AppImage.backGround), fit: BoxFit.fill)),
+      child: FutureBuilder<SourceResponseDM>(
+        future: ApisStaticsManager.getSources(widget.selectedCategory.id),
         builder: (context, snapshot) {
-
           if (snapshot.hasError) {
             return Text("Error ${snapshot.error.toString()}");
           } else if (snapshot.hasData) {
@@ -32,34 +38,37 @@ class _NewsEverythingState extends State<NewsEverything> {
             );
           }
         },
-      );
+      ),
+    );
   }
 
   Widget getScreenBody(
-      List<SourceDM> sources,
-      ) {
-    return DefaultTabController(
-      length: sources.length,
-      child: Column(children: [
-        Container(
-          margin: EdgeInsets.all(5),
-          child: TabBar(
-              indicatorColor: Colors.transparent,
-              onTap: (index) {
-                currentTab = index;
-                setState(() {});
-              },
-              isScrollable: true,
-              tabs: sources.map((source) {
-                return getTab(source, currentTab == sources.indexOf(source));
-              }).toList()),
-        ),
-        Expanded(
-            child: TabBarView(
-                children: sources.map((source) {
-                  return NewsTabContent(source);
-                }).toList()))
-      ]),
+    List<SourceDM> sources,
+  ) {
+    return Container(
+      child: DefaultTabController(
+        length: sources.length,
+        child: Column(children: [
+          Container(
+            margin: EdgeInsets.all(5),
+            child: TabBar(
+                indicatorColor: Colors.transparent,
+                onTap: (index) {
+                  currentTab = index;
+                  setState(() {});
+                },
+                isScrollable: true,
+                tabs: sources.map((source) {
+                  return getTab(source, currentTab == sources.indexOf(source));
+                }).toList()),
+          ),
+          Expanded(
+              child: TabBarView(
+                  children: sources.map((source) {
+            return NewsTabContent(source);
+          }).toList()))
+        ]),
+      ),
     );
   }
 
@@ -77,5 +86,4 @@ class _NewsEverythingState extends State<NewsEverything> {
       ),
     );
   }
-
 }

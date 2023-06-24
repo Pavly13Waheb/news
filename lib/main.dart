@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:news/model/Category/article_details.dart';
 import 'package:news/model/app_settings.dart';
-import 'package:news/category_screens/every_thing.dart';
 import 'package:news/provider/provider.dart';
 import 'package:news/theme/app_theme.dart';
 import 'package:provider/provider.dart';
@@ -58,6 +58,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         HomePage.routeName: (_) => HomePage(),
         AppSettings.routeName: (_) => AppSettings(),
+        NewsDetailsScreen.routName : (_)=> NewsDetailsScreen(),
       },
       initialRoute: HomePage.routeName,
     );

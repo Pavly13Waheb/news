@@ -12,6 +12,7 @@
   "environment" : "بيئة",
   "business" : "عمل",
   "categories" : "فئات",
-  "newsAp" : "تطبيق الأخبار!"
-
+  "newsAp" : "تطبيق الأخبار!",
+  "entertainment" : "ترفيه",
+  "technology" : "تكنولوجيا"
 }

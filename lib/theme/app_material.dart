@@ -21,4 +21,6 @@ class AppImage {
   static String politics = "assets/Politics.png";
   static String science = "assets/science.png";
   static String backGround = "assets/background.png";
+  static String entertainment = "assets/entertainment.png";
+  static String technology = "assets/technology.png";
 }

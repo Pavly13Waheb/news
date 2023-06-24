@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class CategoryDM {
+  String id;
   String image;
   String categoryName;
   Color containerColor;
@@ -9,6 +10,7 @@ class CategoryDM {
 
 
   CategoryDM({
+    required this.id,
     required this.categoryName,
     required this.image,
     required this.rightRadius,
