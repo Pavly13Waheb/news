@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:news/apis_statics/ArticlesResponseDM.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:news/apis_statics/ArticlesResponseDM.dart';
 import 'package:url_launcher/url_launcher.dart';
+
+import '../../home_page.dart';
 import '../../theme/app_material.dart';
 import '../app_settings.dart';
 import '../drawer.dart';
@@ -22,15 +24,13 @@ class NewsDetailsScreen extends StatelessWidget {
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.2,
                 child: Text(AppLocalizations.of(context)!.newsAp)),
-            // AppDrawer.drawerChild(
-            //     onChildTap: () {
-            //       selectedCategory = null;
-            //       selectedTap = CategoriesTab(setSelectedCategory);
-            //       Navigator.pop(context);
-            //     },
-            //     icon: Icons.list,
-            //     childName: AppLocalizations.of(context)!.categories,
-            //     context: context),
+            AppDrawer.drawerChild(
+                onChildTap: () {
+                  Navigator.pushNamed(context, HomePage.routeName);
+                },
+                icon: Icons.list,
+                childName: AppLocalizations.of(context)!.categories,
+                context: context),
             AppDrawer.drawerChild(
                 onChildTap: () {
                   Navigator.pushNamed(context, AppSettings.routeName,
@@ -43,12 +43,6 @@ class NewsDetailsScreen extends StatelessWidget {
         ),
       ),
       appBar: AppBar(
-        actions: [
-          Icon(
-            Icons.search,
-            size: 50,
-          )
-        ],
         title: Text("News Details"),
       ),
       body: Container(

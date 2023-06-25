@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:news/category_screens/every_thing.dart';
-import 'package:news/model/app_settings.dart';
-import 'package:news/theme/app_material.dart';
-import 'package:news/model/drawer.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:news/model/Category/every_thing.dart';
+import 'package:news/model/app_settings.dart';
+import 'package:news/model/drawer.dart';
+import 'package:news/search/search.dart';
+import 'package:news/theme/app_material.dart';
+
 import 'model/Category/categories_tab.dart';
 import 'model/Category/categoryDM.dart';
 
@@ -68,9 +70,14 @@ class _HomePageState extends State<HomePage> {
           ),
           appBar: AppBar(
             actions: [
-              Icon(
-                Icons.search,
-                size: 50,
+              IconButton(
+                icon: Icon(
+                  Icons.search,
+                  size: 50,
+                ),
+                onPressed: () {
+                  showSearch(context: context, delegate: NewsSearch());
+                },
               )
             ],
             title: Text(AppLocalizations.of(context)!.newsApp),

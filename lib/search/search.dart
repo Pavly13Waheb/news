@@ -1,48 +1,78 @@
 import 'package:flutter/material.dart';
-import 'package:news/apis_statics/sourceResponse.dart';
-import 'package:news/model/Category/article_details.dart';
 
 import '../apis_statics/ArticlesResponseDM.dart';
 import '../apis_statics/apis_statics_manage.dart';
+import '../model/Category/article_details.dart';
 
-// ignore: must_be_immutable
-class NewsTabContent extends StatelessWidget {
-  SourceDM sourceDM;
-
-  NewsTabContent(this.sourceDM);
+class NewsSearch extends SearchDelegate {
+  @override
+  List<Widget>? buildActions(BuildContext context) {
+    // TODO: implement buildActions
+    return [
+      IconButton(
+          onPressed: () {
+            showResults(context);
+          },
+          icon: Icon(Icons.search))
+    ];
+  }
 
   @override
-  Widget build(BuildContext context) {
-    return FutureBuilder<ArticlesResponseDM>(
-        future: ApisStaticsManager.getArticle(sourceId: sourceDM.id ?? ""),
-        builder: (context, snapshot) {
-          if (snapshot.hasError) {
-            print("${snapshot.error.toString()}");
-            return Text("${snapshot.error.toString()}");
-          } else if (snapshot.hasData) {
-            return ListView.builder(
-              itemCount: snapshot.data!.articles!.length,
-              itemBuilder: (context, index) {
-                return articleWidget(snapshot.data!.articles![index], context);
-              },
-            );
-          } else {
-            return Center(
-              child: CircularProgressIndicator(),
-            );
-          }
-        });
+  Widget? buildLeading(BuildContext context) {
+    // TODO: implement buildLeading
+    return IconButton(
+        onPressed: () {
+          close(context, null);
+        },
+        icon: Icon(Icons.clear));
+  }
+
+  @override
+  Widget buildResults(BuildContext context) {
+    // TODO: implement buildResults
+    return ifSearchQueryNull(context);
+  }
+
+  @override
+  Widget buildSuggestions(BuildContext context) {
+    // TODO: implement buildSuggestions
+    return Text("data");
+  }
+
+  ifSearchQueryNull(BuildContext context) {
+    if (query == "") {
+      return close(context, null);
+    } else {
+      return FutureBuilder<ArticlesResponseDM>(
+          future: ApisStaticsManager.getArticle(searchKeyWord: query),
+          builder: (context, snapshot) {
+            if (snapshot.hasError) {
+              print("${snapshot.error.toString()}");
+              return Text("${snapshot.error.toString()}");
+            } else if (snapshot.hasData) {
+              return ListView.builder(
+                itemCount: snapshot.data!.articles!.length,
+                itemBuilder: (context, index) {
+                  return articleWidget(
+                      snapshot.data!.articles![index], context);
+                },
+              );
+            } else {
+              return Center(
+                child: CircularProgressIndicator(),
+              );
+            }
+          });
+    }
   }
 
   Widget articleWidget(ArticleDM article, BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context,
-            NewsDetailsScreen.routName,
+        Navigator.pushNamed(context, NewsDetailsScreen.routName,
             arguments: article);
       },
-      child:
-      Container(
+      child: Container(
         margin: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.04),
         child: Column(
