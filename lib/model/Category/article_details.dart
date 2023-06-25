@@ -121,7 +121,7 @@ class NewsDetailsScreen extends StatelessWidget {
     if (url == null) {
       return;
     } else if (await canLaunchUrl(uri)) {
-      launchUrl(uri);
+      await launchUrl(uri);
     }
   }
 }
