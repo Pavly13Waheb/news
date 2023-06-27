@@ -40,6 +40,7 @@ class NewsSearch extends SearchDelegate {
     return ifResultQueryNull(context);
   }
 
+
   ifResultQueryNull(BuildContext context) {
     if (query == "") {
       return Center(child: Column(
