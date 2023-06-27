@@ -58,7 +58,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         HomePage.routeName: (_) => HomePage(),
         AppSettings.routeName: (_) => AppSettings(),
-        NewsDetailsScreen.routName : (_)=> NewsDetailsScreen(),
+        NewsDetailsScreen.routName: (_) => NewsDetailsScreen(),
       },
       initialRoute: HomePage.routeName,
     );

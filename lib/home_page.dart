@@ -70,14 +70,20 @@ class _HomePageState extends State<HomePage> {
           ),
           appBar: AppBar(
             actions: [
-              IconButton(
-                icon: Icon(
-                  Icons.search,
-                  size: 50,
+              Container(margin: EdgeInsets.all(5),
+                child: IconButton(
+                  icon: Icon(
+                    Icons.search,
+                    size: 50,
+                  ),
+                  onPressed: () {
+
+                    showSearch(context: context, delegate: NewsSearch() );
+                    setState(() {
+
+                    });
+                  },
                 ),
-                onPressed: () {
-                  showSearch(context: context, delegate: NewsSearch());
-                },
               )
             ],
             title: Text(AppLocalizations.of(context)!.newsApp),
