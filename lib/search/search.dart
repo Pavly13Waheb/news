@@ -33,25 +33,28 @@ class NewsSearch extends SearchDelegate {
     return ifSearchQueryNull(context);
   }
 
-
   @override
   Widget buildSuggestions(BuildContext context) {
     // TODO: implement buildSuggestions
     return ifResultQueryNull(context);
   }
 
-
   ifResultQueryNull(BuildContext context) {
     if (query == "") {
-      return Center(child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          CircularProgressIndicator(),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.05),
-          Text("Please type what you are searching for", style: Theme.of(context).textTheme.bodyMedium,)
-        ],
-      ),);
+      return Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            CircularProgressIndicator(),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+            Text(
+              "Please type what you are searching for",
+              style: Theme.of(context).textTheme.bodyMedium,
+            )
+          ],
+        ),
+      );
     } else {
       return FutureBuilder<ArticlesResponseDM>(
           future: ApisStaticsManager.getArticle(searchKeyWord: query),
@@ -75,6 +78,7 @@ class NewsSearch extends SearchDelegate {
           });
     }
   }
+
   ifSearchQueryNull(BuildContext context) {
     if (query == "") {
       return close(context, null);
@@ -110,10 +114,7 @@ class NewsSearch extends SearchDelegate {
       },
       child: Container(
         margin: EdgeInsets.symmetric(
-            horizontal: MediaQuery
-                .of(context)
-                .size
-                .width * 0.04),
+            horizontal: MediaQuery.of(context).size.width * 0.04),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
@@ -126,10 +127,7 @@ class NewsSearch extends SearchDelegate {
                     borderRadius: BorderRadius.circular(10),
                     child: Image.network(article.urlToImage!,
                         fit: BoxFit.fill,
-                        height: MediaQuery
-                            .of(context)
-                            .size
-                            .height * 0.3,
+                        height: MediaQuery.of(context).size.height * 0.3,
                         width: double.infinity),
                   ),
                 ],
@@ -153,10 +151,7 @@ class NewsSearch extends SearchDelegate {
                 )),
             Text(article.publishedAt ?? "", textAlign: TextAlign.end),
             SizedBox(
-              height: MediaQuery
-                  .of(context)
-                  .size
-                  .height * 0.02,
+              height: MediaQuery.of(context).size.height * 0.02,
             )
           ],
         ),

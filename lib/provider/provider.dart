@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-
 class AppProvider extends ChangeNotifier {
   String currentLocale = "en";
   ThemeMode currentTheme = ThemeMode.light;
@@ -19,6 +18,4 @@ class AppProvider extends ChangeNotifier {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setString("theme", theme == ThemeMode.light ? "light" : "dark");
   }
-
-
 }

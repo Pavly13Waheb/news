@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class AppDrawer{
-  static  drawerChild(
+class AppDrawer {
+  static drawerChild(
       {required BuildContext context,
-        required IconData icon,
-        required String childName,
-        required Function() onChildTap}) {
+      required IconData icon,
+      required String childName,
+      required Function() onChildTap}) {
     return Container(
       width: double.infinity,
       margin: EdgeInsets.symmetric(

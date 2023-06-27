@@ -8,7 +8,6 @@ class CategoryDM {
   double leftRadius;
   double rightRadius;
 
-
   CategoryDM({
     required this.id,
     required this.categoryName,
@@ -17,6 +16,4 @@ class CategoryDM {
     required this.leftRadius,
     required this.containerColor,
   });
-
-
 }

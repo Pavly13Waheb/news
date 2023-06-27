@@ -33,7 +33,9 @@ class _AppSettingsState extends State<AppSettings> {
                 height: MediaQuery.of(context).size.height * 0.2,
                 child: Text(AppLocalizations.of(context)!.newsAp)),
             drawerChild(
-                onChildTap: () {Navigator.pushNamed(context, HomePage.routeName);},
+                onChildTap: () {
+                  Navigator.pushNamed(context, HomePage.routeName);
+                },
                 icon: Icons.list,
                 childName: AppLocalizations.of(context)!.categories),
             drawerChild(
@@ -46,7 +48,8 @@ class _AppSettingsState extends State<AppSettings> {
           ],
         ),
       ),
-      appBar: AppBar(        title: Text(AppLocalizations.of(context)!.setting),
+      appBar: AppBar(
+        title: Text(AppLocalizations.of(context)!.setting),
       ),
       body: Container(
         padding: EdgeInsets.only(
@@ -156,10 +159,11 @@ class _AppSettingsState extends State<AppSettings> {
       ),
     );
   }
+
   drawerChild(
       {required IconData icon,
-        required String childName,
-        required Function() onChildTap}) {
+      required String childName,
+      required Function() onChildTap}) {
     return Container(
       width: double.infinity,
       margin: EdgeInsets.symmetric(

@@ -70,18 +70,16 @@ class _HomePageState extends State<HomePage> {
           ),
           appBar: AppBar(
             actions: [
-              Container(margin: EdgeInsets.all(5),
+              Container(
+                margin: EdgeInsets.all(5),
                 child: IconButton(
                   icon: Icon(
                     Icons.search,
                     size: 50,
                   ),
                   onPressed: () {
-
-                    showSearch(context: context, delegate: NewsSearch() );
-                    setState(() {
-
-                    });
+                    showSearch(context: context, delegate: NewsSearch());
+                    setState(() {});
                   },
                 ),
               )

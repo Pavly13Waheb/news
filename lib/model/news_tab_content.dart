@@ -37,12 +37,10 @@ class NewsTabContent extends StatelessWidget {
   Widget articleWidget(ArticleDM article, BuildContext context) {
     return InkWell(
       onTap: () {
-        Navigator.pushNamed(context,
-            NewsDetailsScreen.routName,
+        Navigator.pushNamed(context, NewsDetailsScreen.routName,
             arguments: article);
       },
-      child:
-      Container(
+      child: Container(
         margin: EdgeInsets.symmetric(
             horizontal: MediaQuery.of(context).size.width * 0.04),
         child: Column(
