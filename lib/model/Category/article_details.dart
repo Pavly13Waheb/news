@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:news/apis_statics/ArticlesResponseDM.dart';
 import 'package:url_launcher/url_launcher.dart';
-
 import '../../home_page.dart';
 import '../../theme/app_material.dart';
 import '../app_settings.dart';
