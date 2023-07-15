@@ -148,7 +148,7 @@ class NewsSearch extends SearchDelegate {
                   color: Colors.black,
                   fontSize: 20,
                   fontWeight: FontWeight.bold,
-                )),
+                ),),
             Text(article.publishedAt ?? "", textAlign: TextAlign.end),
             SizedBox(
               height: MediaQuery.of(context).size.height * 0.02,
