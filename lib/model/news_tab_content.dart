@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:news/apis_statics/sourceResponse.dart';
 import 'package:news/model/Category/article_details.dart';
-
 import '../apis_statics/ArticlesResponseDM.dart';
 import '../apis_statics/apis_statics_manage.dart';
 
